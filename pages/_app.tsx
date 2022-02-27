@@ -1,8 +1,17 @@
 import '../styles/globals.css'
 import type { AppProps } from 'next/app'
+import { AnimatePresence } from 'framer-motion'
+import NavBar from "../components/NavBar";
 
 function MyApp({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
+  return (
+    <>
+    <NavBar />
+    <AnimatePresence exitBeforeEnter initial={false}>
+      <Component {...pageProps} />
+    </AnimatePresence>
+    </>
+  )
 }
 
 export default MyApp
